@@ -8,4 +8,4 @@ services:
       - default
 
 networks:
-  default
+  default:
