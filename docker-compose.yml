@@ -4,3 +4,8 @@ services:
     image: filebrowser/filebrowser
     volumes:
       - /var/lib/docker/volumes/:/srv 
+    networks:
+      - default
+
+networks:
+  default
