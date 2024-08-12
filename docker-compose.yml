@@ -5,7 +5,8 @@ services:
     volumes:
       - /var/lib/docker/volumes/:/srv 
     networks:
-      - default
+      - npm
 
 networks:
-  default:
+  npm:
+    external: true
