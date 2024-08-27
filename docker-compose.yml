@@ -38,7 +38,7 @@ services:
       POSTGRESQL_HOSTNAME: postgres
       POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
       POSTGRES_USER: '${POSTGRES_USER}'
-      POSTGRESQL_AUTO_CREATE_ACCOUNTS: true
+      POSTGRESQL_AUTO_CREATE_ACCOUNTS: 'true'
     image: guacamole/guacamole
     networks:
       - npm
