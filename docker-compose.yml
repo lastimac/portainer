@@ -2,7 +2,7 @@ version: '3.8'
 services:
   teleport:
     container_name: teleport
-    image: public.ecr.aws/gravitational/teleport-distroless:16.2.0
+    image: public.ecr.aws/gravitational/teleport-distroless-debug:16.2.0
     restart: unless-stopped
     volumes:
       - ./config:/etc/teleport 
