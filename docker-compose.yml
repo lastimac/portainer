@@ -1,0 +1,37 @@
+
+services:
+  # guacd
+  guacd:
+    container_name: guacd_compose
+    image: guacamole/guacd
+    networks:
+      - npm
+    restart: always
+    volumes:
+    - drive:/drive:rw
+    - record:/record:rw
+
+  # guacamole
+  guacamole:
+    container_name: guacamole_compose
+    depends_on:
+    - guacd
+    environment:
+      GUACD_HOSTNAME: guacd
+    image: guacamole/guacamole
+    networks:
+      - npm
+    volumes:
+      - record:/record:rw
+    ports:
+      - 8080/tcp
+    restart: always
+
+   
+volumes:
+  drive:
+  record:
+  
+networks:
+  npm:
+    external: true
