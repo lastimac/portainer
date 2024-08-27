@@ -21,7 +21,7 @@ services:
       POSTGRESQL_USER: '${POSTGRES_USER}'
     image: postgres:15.0
     networks:
-      npm
+      - npm
     restart: always
     volumes:
     - ./init:/docker-entrypoint-initdb.d:ro
