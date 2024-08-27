@@ -2,7 +2,7 @@
 services:
   # guacd
   guacd:
-    container_name: guacd_compose
+    container_name: guacd
     image: guacamole/guacd
     networks:
       - npm
@@ -17,8 +17,8 @@ services:
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole_db
-      POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}'
-      POSTGRES_USER: '${POSTGRES_USER}'
+      POSTGRES_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRES_USER: 'guacamole_user'
     image: postgres:15.0
     networks:
       npm
@@ -29,15 +29,15 @@ services:
 
   # guacamole
   guacamole:
-    container_name: guacamole_compose
+    container_name: guacamole
     depends_on:
     - guacd
     environment:
       GUACD_HOSTNAME: guacd
       POSTGRESQL_DATABASE: guacamole_db
       POSTGRESQL_HOSTNAME: postgres
-      POSTGRESQL_PASSWORD: '${POSTGRES_PASSWORD}'
-      POSTGRESQL_USER: '${POSTGRES_USER}'
+      POSTGRESQL_PASSWORD: 'ChooseYourOwnPasswordHere1234'
+      POSTGRESQL_USER: 'guacamole_user'
       POSTGRESQL_AUTO_CREATE_ACCOUNTS: true
     image: guacamole/guacamole
     networks:
