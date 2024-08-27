@@ -5,7 +5,7 @@ services:
     image: public.ecr.aws/gravitational/teleport-distroless:16.2.0
     restart: unless-stopped
     volumes:
-      - ${PWD}/config:/etc/teleport 
+      - ./config:/etc/teleport 
       - data:/var/lib/teleport
     ports:
       - 3025:3025
