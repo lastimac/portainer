@@ -1,18 +1,21 @@
 version: '3.8'
 services:
-  guacamole:
-    container_name: guacamole
-    image: oznu/guacamole
+  teleport:
+    container_name: teleport
+    image: public.ecr.aws/gravitational/teleport-distroless:16.2.0
     restart: unless-stopped
     volumes:
-      - config:/config
+      - ./config:/etc/teleport 
+      - data:/var/lib/teleport
     ports:
-      - 8080
+      - 3025:3025
+      - 3080:3080
+     
     networks:
       - npm
    
 volumes:
-  config:
+  data:
   
 networks:
   npm:
